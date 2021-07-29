@@ -17,7 +17,9 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
-        app.get('/', (req, res) => res.render('index'));
+        app.get('/', (req, res) => res.render('index', {
+            subtitle: ""
+        }));
     
         app.listen(process.env.DASHBOARD_PORT, () => console.log(`Dashboard is running on port ${process.env.DASHBOARD_PORT}`));
     }

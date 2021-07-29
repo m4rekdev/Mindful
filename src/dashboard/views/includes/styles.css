@@ -1,0 +1,13 @@
+.jumbotron {
+    margin-top: 25vh;
+    text-align: center;
+    color: white;
+}
+
+.jumbotron hr {
+    border-top: 1px solid white;
+}
+
+nav.navbar {
+    background: rgb(50, 50, 50);
+}
