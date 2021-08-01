@@ -1,5 +1,4 @@
-.jumbotron {
-    margin-top: 25vh;
+body {
     color: white;
 }
 
@@ -9,4 +8,8 @@
 
 nav.navbar {
     background: rgb(50, 50, 50);
+}
+
+.mt-25vh {
+    margin-top: 25vh;
 }

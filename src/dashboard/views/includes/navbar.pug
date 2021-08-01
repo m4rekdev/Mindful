@@ -1,9 +1,13 @@
 nav.navbar.navbar-expand-lg.navbar-dark
-  a.navbar-brand(href='#') Mindful
+  a.navbar-brand(href='/') Mindful
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarNavAltMarkup.collapse.navbar-collapse
     .navbar-nav
-      a.nav-link(href='/commands') Commands
+      a.nav-link(href='/commands')
+        i.fas.fa-code.pl-2
+        span.pl-2 Commands
     .navbar-nav.ml-auto
-      a.nav-link(href='/login') Login
+      a.nav-link(href='/login')
+        i.fas.fa-sign-in-alt.pl-2
+        span.pl-2 Login

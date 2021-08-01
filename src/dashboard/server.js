@@ -20,6 +20,15 @@ export class Dashboard {
         app.get('/', (req, res) => res.render('index', {
             subtitle: ""
         }));
+
+        app.get('/commands', (req, res) => res.render('commands', {
+            subtitle: "Commands",
+            categories: [
+                { name: 'Everyone', icon: 'fas fa-user' },
+                { name: 'DJ', icon: 'fas fa-compact-disc' },
+                { name: 'Admin', icon: 'fas fa-tools' }
+            ]
+        }));
     
         app.listen(process.env.DASHBOARD_PORT, () => console.log(`Dashboard is running on port ${process.env.DASHBOARD_PORT}`));
     }
