@@ -29,4 +29,14 @@ export class CommandHandler {
         }
         
     }
+
+    async get() {
+        const array = [];
+        const itr = this.commands.keys(); 
+        for(var i=0; i<this.commands.size; i++){
+            array.push(itr.next().value); 
+        };
+        console.log(array);
+        return array;
+    }
 }

@@ -6,7 +6,7 @@ html(lang="en")
         include includes/header.pug
     body.bg-dark
         include includes/navbar.pug
-        .container
+        .container.mt-3
             .jumbotron.text-center.bg-transparent
                 h1.display-4 Commands
                 p.lead View the commands of Mindful.
@@ -17,5 +17,7 @@ html(lang="en")
                         each category in categories
                             +category(category)
                     .col-sm-9
-                        ul.list-group
-                            li.list-group-item.bg-transparent test
+                        each command in commands
+                            - console.log("a" + commands)
+                            +command(command)
+                            

@@ -8,8 +8,17 @@ body {
 
 nav.navbar {
     background: rgb(50, 50, 50);
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .mt-25vh {
     margin-top: 25vh;
 }
+
+.bg-commands {
+    background: rgb(50, 50, 50);
+}
+
+.category-active {}

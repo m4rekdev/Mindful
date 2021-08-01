@@ -1,3 +1,7 @@
 mixin category(category)
     ul.list-group.my-3
         li.list-group-item.bg-transparent #[i(class=category.icon)] #{category.name}
+
+mixin command(command)
+    ul.list-group.my-1.bg-commands
+        li.list-group-item.bg-transparent #{command}
