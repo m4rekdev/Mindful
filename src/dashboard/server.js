@@ -17,9 +17,7 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
-        app.get('/', (req, res) => res.render('index', {
-            subtitle: ""
-        }));
+        app.get('/', (req, res) => res.render('index'));
 
         app.get('/commands', (req, res) => res.render('commands', {
             subtitle: "Commands",
