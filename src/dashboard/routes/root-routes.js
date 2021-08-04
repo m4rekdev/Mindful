@@ -3,8 +3,8 @@ import pug from 'pug';
 
 const router = express.Router();
 
-import Deps from '../utils/deps.js';
-import { CommandHandler } from '../handlers/command-handler.js';
+import Deps from '../../utils/deps.js';
+import { CommandHandler } from '../../handlers/command-handler.js';
 
 router.get('/', (req, res) => res.render('index'));
 

@@ -60,3 +60,11 @@ nav.navbar {
     cursor: pointer;
     transition: background 0.5s;
 }
+
+.bg-dark a {
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
