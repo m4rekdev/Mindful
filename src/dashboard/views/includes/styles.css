@@ -5,6 +5,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 p {
@@ -21,9 +22,6 @@ hr {
 
 nav.navbar {
     background: rgb(50, 50, 50);
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 .mt-25vh {
@@ -66,5 +64,27 @@ nav.navbar {
 }
 
 .round {
-    border-radius: 50%;
+    border-radius: 50% !important;
+}
+
+#sidebar {
+    height: 100vh;
+    padding: 10px;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.icon, .icon img {
+    font-size: x-large;
+
+    height: 52px;
+    width: 52px;
+
+    margin: 0.5rem 0;
+}
+
+.abbr {
+    padding-top: 7.5px;
 }
