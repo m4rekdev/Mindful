@@ -10,7 +10,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "stage-3",
+      "latest"
+    ]
+  },
   "dependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-3": "^6.5.0",
     "discord.js": "^12.5.3",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",

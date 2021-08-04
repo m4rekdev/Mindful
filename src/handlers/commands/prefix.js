@@ -4,6 +4,8 @@ import { Guilds } from '../../data/guilds.js';
 
 export default class extends Command {
     name = 'prefix';
+    category = 'Admin';
+    description = 'View or change the command prefix.';
 
     constructor() {
         super();
@@ -13,11 +15,11 @@ export default class extends Command {
     async execute(msg, value) {
         const savedGuild = await this.guilds.get(msg.guild.id);
         if (!value)
-            return await msg.reply(`Prefix is \`${savedGuild.prefix}\`!`);
+            return await msg.reply(`The prefix is \`${savedGuild.prefix}\`!`);
         
         savedGuild.prefix = value;
         await savedGuild.save();
 
-        await msg.reply(`Prefix is now \`${value}\`!`);
+        await msg.reply(`The prefix is now \`${value}\`!`);
     }
 }

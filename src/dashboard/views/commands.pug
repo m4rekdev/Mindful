@@ -6,18 +6,29 @@ html(lang="en")
         include includes/header.pug
     body.bg-dark
         include includes/navbar.pug
-        .container.mt-3
-            .jumbotron.text-center.bg-transparent
+        .container.mt-3#container-commands
+            .jumbotron.text-center.bg-transparent.p-0
                 h1.display-4 Commands
                 p.lead View the commands of Mindful.
-                hr
+            hr
             section#commands
+                .form-group.p-3.d-flex.justify-content-center
+                    input#search.form-control(type="search")
+                    button.btn.btn-info.search-btn
+                        i.fas.fa-search
                 .row
-                    .col-sm-3
-                        each category in categories
-                            +category(category)
-                    .col-sm-9
-                        each command in commands
-                            - console.log("a" + commands)
-                            +command(command)
-                            
+                    .col-sm-3.categories
+                        ul.list-group.my-3
+                            each category in categories
+                                +category(category)
+                    .col-sm-9.commands
+                        p#commandError
+                        ul.list-group.my-1.bg-commands
+                            each command in commands
+                                +command(command)
+    
+        script(src='https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js', defer)
+        script(defer).
+            let commands = !{commandsString};
+        script(defer)
+            include includes/app.js
