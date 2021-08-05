@@ -3,8 +3,12 @@ import pug from 'pug';
 
 const router = express.Router();
 
-import Deps from '../../utils/deps.js';
 import { CommandHandler } from '../../handlers/command-handler.js';
+
+import Deps from '../../utils/deps.js';
+import Middleware from '..//middleware.js';
+
+router.use(Deps.get(Middleware).updateUser);
 
 router.get('/', (req, res) => res.render('index'));
 
@@ -21,9 +25,5 @@ router.get('/commands', async (req, res) => {
     commands: cmds,
     commandsString: cmdsString
 })});
-
-router.get('/invite', (req, res) => {
-    res.redirect('https://youtu.be/');
-});
 
 export default router;

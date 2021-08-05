@@ -4,7 +4,6 @@ config({ path: '.env' });
 import express from 'express';
 import pug from 'pug';
 
-import Deps from '../utils/deps.js';
 import { CommandHandler } from '../handlers/command-handler.js';
 
 import { fileURLToPath } from 'url';
@@ -14,6 +13,7 @@ import rootRoutes from './routes/root-routes.js';
 import authRoutes from './routes/auth-routes.js';
 import dashboardRoutes from './routes/dashboard-routes.js';
 import cookies from 'cookies';
+import Deps from '../utils/deps.js';
 import Middleware from './middleware.js';
 
 export class Dashboard {
@@ -29,8 +29,7 @@ export class Dashboard {
         app.set('view engine', 'pug');
 
         app.use(cookies.express('a', 'b', 'c'));
-        app.use('/', Deps.get(Middleware).updateUser, rootRoutes, authRoutes);
-        app.use('/dashboard', Deps.get(Middleware).validateUser, dashboardRoutes);
+        app.use('/', rootRoutes, authRoutes, dashboardRoutes);
 
         app.get('*', (req, res) => res.render('errors/404', {
             subtitle: '404'
