@@ -31,6 +31,7 @@ export default class Middleware {
                 res.locals.guilds = getManagableGuilds(authGuilds);
             }
         } finally {
+            res.locals.guilds = res.locals.guilds ?? [];
             next();
         }
     }

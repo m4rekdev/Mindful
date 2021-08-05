@@ -4,6 +4,16 @@ html(lang="en")
         include ../includes/header.pug
     body.bg-dark
         include ../includes/sidebar.pug
+
+        #sidebarExtension.bg-dash-menu
+            header.text-center.pt-4
+                .large-icon.shadow.round
+                    if server.icon
+                        img.round(src=server.iconURL({ dynamic: true, size: 128 }), alt=server.name)
+                    else
+                        p.text-center.abbr #{server.nameAcronym}
+                h4.pt-2 #{server.name}
+
         include ../includes/navbar.pug
         |
         .container.jumbotron.bg-transparent.text-center.mt-25vh

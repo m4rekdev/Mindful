@@ -1,15 +1,21 @@
 #sidebar.float-left.bg-dash-menu
-    a(href='/dashboard')
+    a(href='/dashboard').sb-i
         .icon.round.shadow
-            img.round(alt=user.username, src=user.avatarUrl(64))
+            img.round.shadow(alt=user.username, src=user.avatarUrl(64))
     hr
     each guild of guilds
-        a(href="/servers/" + guild.id)
+        a(href="/servers/" + guild.id).sb-i.my-2
             .icon.round.shadow(data-toggle="tooltip", data-placement="right", title=guild.name)
                 if guild.icon
                     img.round(alt=guild.name, src=guild.iconURL({ dynamic: true, size: 64 }))
                 else
                     p.text-center.abbr #{guild.nameAcronym}
-    a(href='/invite')
+    hr
+    a(href='/invite').sb-i
         .icon.round.shadow
             p.abbr.text-success.text-center #[i.fas.fa-plus]
+    .hamburger
+        i.fas.fa-bars
+
+script(defer)
+    include sidebar.js

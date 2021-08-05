@@ -87,12 +87,50 @@ nav.navbar {
     width: 52px;
 
     margin: 0.25rem 0;
+
+    transition: border-radius 0.5s ease-in-out;
 }
 
-.abbr {
+.abbr, .sb-i {
     padding-top: 7.5px;
+    text-decoration: none !important;
 }
 
-.icon:hover {
+.icon:hover, .icon img:hover {
     border-radius: 15% !important;
+}
+
+.hamburger {
+    cursor: pointer;
+    font-size: xxx-large;
+    bottom: 0;
+    position: absolute;
+}
+
+#sidebar, #sidebarExtension {
+    height: 100vh;
+    float: left;
+}
+
+#sidebarExtension {
+    width: 275px;
+    transition: width 0.5s;
+    opacity: 1;
+}
+
+#sidebarExtension .large-icon {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#sidebarExtension .large-icon, #sidebarExtension img {
+    font-size: xx-large;
+
+    width: 96px;
+    height: 96px;
+}
+
+#sidebarExtension .abbr {
+    padding-top: 25px;
 }
