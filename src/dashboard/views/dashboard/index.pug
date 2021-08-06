@@ -5,7 +5,7 @@ html(lang="en")
     body.bg-dark
         include ../includes/sidebar.pug
 
-        #sidebarExtension.bg-dark
+        #sidebarExtension.bg-dash-menu
             header.text-center.pt-4
                 .large-icon.bg-secondary.round
                     img.round(src=user.avatarUrl(128), alt=user.username)
@@ -13,7 +13,7 @@ html(lang="en")
 
         include ../includes/navbar.pug
         |
-        .container.jumbotron.bg-transparent.text-center.mt-25vh
+        .jumbotron.bg-transparent.text-center.mt-25vh
             h1.display-3 Dashboard
             hr
             p.lead Manage music and settings of Mindful for your server.

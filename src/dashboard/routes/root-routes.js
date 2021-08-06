@@ -6,7 +6,7 @@ const router = express.Router();
 import { CommandHandler } from '../../handlers/command-handler.js';
 
 import Deps from '../../utils/deps.js';
-import Middleware from '..//middleware.js';
+import Middleware from '../modules/middleware.js';
 
 router.use(Deps.get(Middleware).updateUser);
 

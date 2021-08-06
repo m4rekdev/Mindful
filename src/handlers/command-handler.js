@@ -1,8 +1,15 @@
 import { readdirSync } from 'fs';
 import { bot } from '../bot.js';
+import Deps from '../../utils/deps.js';
+import { Guilds } from '../../data/guilds.js';
 
 export class CommandHandler {
     commands = new Map();
+
+    constructor() {
+        super();
+        this.guilds = Deps.get(Guilds);
+    }
 
     async init() {
         const fileNames = readdirSync('./src/handlers/commands');

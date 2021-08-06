@@ -14,7 +14,7 @@ import authRoutes from './routes/auth-routes.js';
 import dashboardRoutes from './routes/dashboard-routes.js';
 import cookies from 'cookies';
 import Deps from '../utils/deps.js';
-import Middleware from './middleware.js';
+import Middleware from './modules/middleware.js';
 
 export class Dashboard {
 
