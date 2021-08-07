@@ -1,9 +1,9 @@
 import { readdirSync } from 'fs';
+import Guilds from '../data/guilds.js';
 import { bot } from '../bot.js';
 import Deps from '../utils/deps.js';
 
 export class CommandHandler {
-    Guilds =  import('../data/guilds.js');
     commands = new Map();
 
     async init() {
@@ -20,7 +20,8 @@ export class CommandHandler {
 
     async handle(prefix, msg) {
         try {
-            let savedGuild = this.Guilds.get(msg.guild.id);
+            let savedGuild = Deps.get(Guilds).get(msg.guild.id);
+            console.log(savedGuild);
             const channelIsBlacklisted = savedGuild.blacklistedChannelIds.includes(msg.channel.id);
             if (channelIsBlacklisted)
                 return false;
