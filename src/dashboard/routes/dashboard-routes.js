@@ -24,12 +24,17 @@ router.put('/servers/:id/:module', Deps.get(Middleware).validateGuild, async (re
     try {
         const { id, module } = req.params;
 
-        const savedGuild = await Deps.get(Guilds).get(id);
-        savedGuild[module] = req.body;
+        console.log(req.body);
+
+        let savedGuild = await Deps.get(Guilds).get(id);
+        const { prefix, blacklistedChannelIds } = req.body;
+        savedGuild.prefix = prefix;
+        savedGuild.blacklistedChannelIds = blacklistedChannelIds;
         await savedGuild.save();
 
         res.redirect(`/servers/${id}`);
     } catch (error) {
+        console.log(error);
         res.render('errors/400');
     }
 })
