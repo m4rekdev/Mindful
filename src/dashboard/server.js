@@ -2,6 +2,8 @@ import { config } from 'dotenv';
 config({ path: '.env' });
 
 import express from 'express';
+import bodyParser from 'body-parser';
+import methodOverride from 'method-override';
 import pug from 'pug';
 
 import { CommandHandler } from '../handlers/command-handler.js';
@@ -28,10 +30,12 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(methodOverride('_method'));
         app.use(cookies.express('a', 'b', 'c'));
         app.use('/', rootRoutes, authRoutes, dashboardRoutes);
 
-        app.get('*', (req, res) => res.render('errors/404', {
+        app.all('*', (req, res) => res.render('errors/404', {
             subtitle: '404'
         }));
     
