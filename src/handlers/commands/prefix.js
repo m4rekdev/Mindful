@@ -1,6 +1,6 @@
 import Command from './command.js';
 import Deps from '../../utils/deps.js';
-import { Guilds } from '../../data/guilds.js';
+import Guilds from '../../data/guilds.js';
 
 export default class extends Command {
     name = 'prefix';
