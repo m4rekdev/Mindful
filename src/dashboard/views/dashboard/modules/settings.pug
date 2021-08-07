@@ -6,12 +6,13 @@ section#settingsModule.module.px-5
             .row
                 .col-4
                     label Prefix
-                    input.form-control(type='text', name='prefix', value=savedGuild.prefix)
+                    input.form-control.bg-transparent(type='text', name='prefix', value=savedGuild.prefix, maxlength='5', required)
                 .col-4
                     label Blacklisted Channels
-                    select.form-control(name='blacklistedChannelIds', multiple)
+                    input(name='blacklistedChannelIds', type='hidden', value='')
+                    select.form-control.bg-transparent(name='blacklistedChannelIds[]', multiple)
                         each channel of Array.from(server.channels.cache.filter(c => c.type === 'text').values())
-                            if savedGuild.blacklistedChannelIds.has(channel.id)
+                            if savedGuild.blacklistedChannelIds.includes(channel.id)
                                 option(value=channel.id, selected) ##{channel.name}
                             else
                                 option(value=channel.id) ##{channel.name}

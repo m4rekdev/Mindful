@@ -21,8 +21,7 @@ export class CommandHandler {
     async handle(prefix, msg) {
         try {
             const savedGuild = Deps.get(Guilds).get(msg.guild.id);
-            const channelIsBlacklisted = savedGuild.blacklistedChannelIds
-                .includes(msg.channel.id);
+            const channelIsBlacklisted = savedGuild.blacklistedChannelIds.includes(msg.channel.id);
             if (channelIsBlacklisted)
                 return false;
             const words = msg.content

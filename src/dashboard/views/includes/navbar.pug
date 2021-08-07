@@ -22,9 +22,9 @@ nav.navbar.navbar-expand-lg.navbar-dark
             img.user-avatar.round(src=user.avatarUrl(32))
             span.pl-2 #{user.username}
           .dropdown-menu.bg-dark(aria-labelledby='dropdownMenuButton').text-center
-              a.dropdown-item(href='/dashboard') Dashboard
+              a.dropdown-item(href='/dashboard') #[i.fas.fa-tachometer-alt] Dashboard
               hr
-              a.dropdown-item(href='/logout') Logout
+              a.dropdown-item(href='/logout') #[i.fas.fa-sign-out-alt] Logout
       else
         a.nav-link(href='/login')
           i.fas.fa-sign-in-alt.pl-2

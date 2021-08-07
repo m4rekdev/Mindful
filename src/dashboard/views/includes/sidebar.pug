@@ -4,13 +4,14 @@
             img.round.shadow(alt=user.username, src=user.avatarUrl(64))
     hr
     each guild of guilds
-        a(href="/servers/" + guild.id).sb-i.my-2
-            .icon.round.shadow(data-toggle="tooltip", data-placement="right", title=guild.name)
-                if guild.icon
-                    img.round(alt=guild.name, src=guild.iconURL({ dynamic: true, size: 64 }))
-                else
-                    p.text-center.abbr #{guild.nameAcronym}
-    hr
+        if guild
+            a(href="/servers/" + guild.id).sb-i.my-2
+                .icon.round.shadow(data-toggle="tooltip", data-placement="right", title=guild.name)
+                    if guild.icon
+                        img.round(alt=guild.name, src=guild.iconURL({ dynamic: true, size: 64 }))
+                    else
+                        p.text-center.abbr #{guild.nameAcronym}
+            hr
     a(href='/invite').sb-i
         .icon.round.shadow
             p.abbr.text-success.text-center #[i.fas.fa-plus]

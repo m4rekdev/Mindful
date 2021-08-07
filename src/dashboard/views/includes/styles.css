@@ -58,7 +58,7 @@ nav.navbar {
 }
 
 .active {
-    background: var(--info);
+    background: var(--primary);
 }
 
 .categories li {
@@ -173,4 +173,8 @@ nav.navbar {
     margin: 10px auto;
     white-space: wrap;
     width: 75%;
+}
+
+.bg-transparent, .bg-transparent:focus {
+    color: white;
 }

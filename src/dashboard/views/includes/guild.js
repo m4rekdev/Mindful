@@ -10,6 +10,14 @@ function setModule(name) {
     $('#sidebarExtension').toggleClass('closed');
 }
 
+$('input').on('input', function() {
+    $(this)[0].checkValidity()
+        ? $(this).removeClass('border border-danger')
+        : $(this).addClass('border border-danger');
+    
+    $('button.btn.btn-success').attr('disabled', !$('form')[0].checkValidity());
+})
+
 $('.module').hide();
 $(`#playerModule`).show();
 $(`#player`).addClass('active');
