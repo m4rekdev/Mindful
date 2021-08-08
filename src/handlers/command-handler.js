@@ -1,9 +1,16 @@
 import { readdirSync } from 'fs';
+
+import { Guilds } from '../data/guilds.js';
+
 import { bot } from '../bot.js';
 import Deps from '../utils/deps.js';
 
 export class CommandHandler {
     commands = new Map();
+
+    constructor() {
+        this.guilds = Deps.get(Guilds);
+    }
 
     async init() {
         const fileNames = readdirSync('./src/handlers/commands');
@@ -19,8 +26,7 @@ export class CommandHandler {
 
     async handle(prefix, msg) {
         try {
-            let savedGuild = Guilds.get(msg.guild.id);
-            console.log(savedGuild);
+            let savedGuild = await this.guilds.get(msg.guild.id);
             const channelIsBlacklisted = savedGuild.blacklistedChannelIds.includes(msg.channel.id);
             if (channelIsBlacklisted)
                 return false;

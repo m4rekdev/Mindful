@@ -4,7 +4,7 @@ import pug from 'pug';
 const router = express.Router();
 
 import { bot } from '../../bot.js';
-global.Guilds = import('../../data/guilds.js');
+import { Guilds } from '../../data/guilds.js';
 import { CommandHandler } from '../../handlers/command-handler.js';
 
 import Deps from '../../utils/deps.js';

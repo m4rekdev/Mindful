@@ -118,7 +118,6 @@ nav.navbar {
 #sidebar, #sidebarExtension {
     height: 100vh;
     float: left;
-    position: sticky;
 }
 
 #sidebarExtension {

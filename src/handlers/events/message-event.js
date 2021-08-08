@@ -1,7 +1,7 @@
 import Event from './event.js';
 import { CommandHandler } from '../command-handler.js';
 import Deps from '../../utils/deps.js';
-import Guilds from '../../data/guilds.js';
+import { Guilds } from '../../data/guilds.js';
 
 export default class extends Event {
     on = 'message';
