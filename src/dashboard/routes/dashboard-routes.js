@@ -48,6 +48,6 @@ router.put('/servers/:id/:module', Deps.get(Middleware).validateGuild, async (re
         console.log(error);
         res.render('errors/400');
     }
-})
+});
 
 export default router;

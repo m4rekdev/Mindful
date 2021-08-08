@@ -14,6 +14,7 @@ import { dirname } from 'path';
 import rootRoutes from './routes/root-routes.js';
 import authRoutes from './routes/auth-routes.js';
 import dashboardRoutes from './routes/dashboard-routes.js';
+import musicRoutes from './routes/music-routes.js';
 import cookies from 'cookies';
 import Deps from '../utils/deps.js';
 import Middleware from './modules/middleware.js';
@@ -47,8 +48,8 @@ export class Dashboard {
             Deps.get(Middleware).validateUser,
             Deps.get(Middleware).updateGuilds,
             Deps.get(Middleware).validateGuild,
-            // Deps.get(Middleware).updateMusicPlayer,
-            // musicRoutes
+            Deps.get(Middleware).updateMusicPlayer,
+            musicRoutes
         );
 
         app.all('*', (req, res) => res.render('errors/404', {

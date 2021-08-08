@@ -1,6 +1,6 @@
 import { MusicClient } from '@2pg/music';
 
-export class {
+export class MusicHandler {
     #client = new MusicClient();
 
     get(options) {
