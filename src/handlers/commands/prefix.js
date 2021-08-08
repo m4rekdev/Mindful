@@ -17,7 +17,7 @@ export default class extends Command {
         if (!value)
             return await msg.reply(`The prefix is \`${savedGuild.prefix}\`!`);
         
-        savedGuild.prefix = value;
+        savedGuild.settings.prefix = value;
         await savedGuild.save();
 
         await msg.reply(`The prefix is now \`${value}\`!`);

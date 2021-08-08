@@ -1,7 +1,12 @@
+include ../includes/mixins.pug
+
 doctype
 html(lang="en")
     head
         include ../includes/header.pug
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js', defer)
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css')
+
     body.bg-dark
         include ../includes/sidebar.pug
 
@@ -17,20 +22,15 @@ html(lang="en")
             .tabs.navbar-nav.text-center
                 a#player.bg-commands #[i.fas.fa-music.pr-1] Player
                 a#settings.bg-commands #[i.fas.fa-cogs.pr-1] Settings
+                a#auditLog.bg-commands #[i.fas.fa-book.pr-1] Audit Log
 
         include ../includes/navbar.pug
 
         section.cont.bg-transparent.text-center
-            header.text-center.pt-4
-                .large-icon.shadow.round
-                    if server.icon
-                        img.round(src=server.iconURL({ dynamic: true, size: 128 }), alt=server.name)
-                    else
-                        p.text-center.abbr #{server.nameAcronym}
-                h1.display-3 #{server.name}
-            hr
             include modules/player
             include modules/settings
+
+            include extensions/audit-log
 
         script(defer)
             include ../includes/guild.js

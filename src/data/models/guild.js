@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
 
+class SettingsModule {
+    prefix = '.';
+    blacklistedChannelIds = [];
+}
+
 export const SavedGuild = mongoose.model('guild', new mongoose.Schema({
     _id: String,
-    prefix: { type: String, default: '.' },
-    blacklistedChannelIds: Array
+    settings: { type: Object, default: new SettingsModule() }
 }));

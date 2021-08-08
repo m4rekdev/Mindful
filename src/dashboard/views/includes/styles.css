@@ -3,9 +3,10 @@
 }
 
 * {
-    /* padding: 0; */
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 p {
@@ -156,6 +157,7 @@ nav.navbar {
     transition: background 0.5s;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .tabs a:hover {
@@ -176,4 +178,8 @@ nav.navbar {
 
 .bg-transparent, .bg-transparent:focus {
     color: white;
+}
+
+code {
+    color: white !important;
 }

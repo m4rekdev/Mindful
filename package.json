@@ -26,9 +26,11 @@
     "discord.js": "^12.5.3",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.3",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "rate-limit-mongo": "^2.3.1"
   },
   "devDependencies": {
     "typescript": "^4.3.5"

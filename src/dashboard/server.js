@@ -17,6 +17,7 @@ import dashboardRoutes from './routes/dashboard-routes.js';
 import cookies from 'cookies';
 import Deps from '../utils/deps.js';
 import Middleware from './modules/middleware.js';
+import rateLimit from './modules/rate-limiter.js';
 
 export class Dashboard {
 
@@ -30,6 +31,7 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
+        app.use(rateLimit);
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(methodOverride('_method'));
         app.use(cookies.express('a', 'b', 'c'));

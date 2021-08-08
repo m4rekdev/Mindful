@@ -16,7 +16,7 @@ export default class extends Event {
         if (!msg.guild || msg.author.bot) return;
 
         const savedGuild = await this.guilds.get(msg.guild.id);
-        const prefix = savedGuild.prefix;
+        const prefix = savedGuild.settings.prefix;
         if (msg.content.startsWith(prefix))
             return this.commandHandler.handle(prefix, msg);
     }

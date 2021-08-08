@@ -2,17 +2,17 @@ section#settingsModule.module.px-5
     form(action='/servers/' + server.id + '/settings?_method=PUT', method='POST')
         .jumbotron.bg-transparent.pb-0
             h1.display-3 Settings
-        .from-group.my-5
+        .form-group.my-5
             .row
                 .col-4
                     label Prefix
-                    input.form-control.bg-transparent(type='text', name='prefix', value=savedGuild.prefix, maxlength='5', required)
+                    input.form-control.bg-transparent(type='text', name='prefix', value=savedGuild.settings.prefix, maxlength='5')
                 .col-4
                     label Blacklisted Channels
                     input(name='blacklistedChannelIds', type='hidden', value='')
                     select.form-control.bg-transparent(name='blacklistedChannelIds[]', multiple)
                         each channel of Array.from(server.channels.cache.filter(c => c.type === 'text').values())
-                            if savedGuild.blacklistedChannelIds.includes(channel.id)
+                            if savedGuild.settings.blacklistedChannelIds.includes(channel.id)
                                 option(value=channel.id, selected) ##{channel.name}
                             else
                                 option(value=channel.id) ##{channel.name}

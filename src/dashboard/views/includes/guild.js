@@ -7,7 +7,6 @@ function setModule(name) {
     $('.module').hide();
     $(`#${name}Module`).show();
     $(`#${name}`).addClass('active');
-    $('#sidebarExtension').toggleClass('closed');
 }
 
 $('input').on('input', function() {
@@ -18,6 +17,6 @@ $('input').on('input', function() {
     $('button.btn.btn-success').attr('disabled', !$('form')[0].checkValidity());
 })
 
-$('.module').hide();
-$(`#playerModule`).show();
-$(`#player`).addClass('active');
+setModule('player');
+
+$(() => hljs.highlightAll());

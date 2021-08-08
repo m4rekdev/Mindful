@@ -4,3 +4,8 @@ mixin category(category)
 mixin command(command)
     li(id=command.name + "Command", class=command.category).list-group-item.bg-transparent
         strong #{command.name}
+
+mixin user(user)
+    span(title=user.id)
+        img.user-avatar.round.mr-2(src=user.displayAvatarURL({ dynamic: true, size: 64 }))
+        h5.d-inline #{user.username}
