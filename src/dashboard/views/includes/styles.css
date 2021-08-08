@@ -1,12 +1,7 @@
-:root {
-    --info: #17a2b8;
-}
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: white;
 }
 
 p {
@@ -14,13 +9,23 @@ p {
 }
 
 body {
-    color: white;
+    color: var(--font);
+    background: var(--background-primary);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--heading);
+}
+
+code.hljs {
+    background: var(--background-secondary);
 }
 
 hr {
-    border-top: 1px solid white;
-    width: 50%;
+    border-top: 1px solid var(--font);
+    width: 25%;
     margin: 20px auto;
+    display: block !important;
 }
 
 nav.navbar {
@@ -44,9 +49,9 @@ nav.navbar {
     max-width: 300px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: 1px solid #17a2b8;
+    border: 1px solid var(--primary);
     background: none;
-    color: white;
+    color: var(--font);
 }
 
 .search-btn {
@@ -59,7 +64,15 @@ nav.navbar {
 }
 
 .active {
-    background: var(--primary);
+    background: var(--background-primary);
+}
+
+.category {
+    transition: color 0.5s;
+}
+
+.category:hover {
+    color: var(--heading);
 }
 
 .categories li {
@@ -68,7 +81,7 @@ nav.navbar {
 }
 
 .bg-dark a {
-    color: white;
+    color: var(--font);
 }
 
 .round {
@@ -78,6 +91,7 @@ nav.navbar {
 #sidebar {
     height: 100vh;
     padding: 10px;
+    background: var(--background-tertiary);
 }
 
 .shadow {
@@ -102,6 +116,7 @@ nav.navbar {
 .abbr, .sb-i {
     padding-top: 7.5px;
     text-decoration: none !important;
+    color: var(--font);
 }
 
 .icon:hover, .icon img:hover {
@@ -125,6 +140,7 @@ nav.navbar {
     width: 275px;
     transition: 0.5s;
     opacity: 1;
+    background: var(--background-secondary);
 }
 
 .large-icon {
@@ -158,10 +174,11 @@ nav.navbar {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
+    color: var(--font);
 }
 
 .tabs a:hover {
-    background: var(--info);
+    background: var(--background-primary);
 }
 
 .display-3 {
@@ -177,9 +194,30 @@ nav.navbar {
 }
 
 .bg-transparent, .bg-transparent:focus {
-    color: white;
+    color: var(--font);
 }
 
 code {
-    color: white !important;
+    color: var(--font) !important;
+}
+
+.table {
+    color: var(--heading);
+}
+
+.list-group-item {
+    background: inherit;
+}
+
+.navbar a {
+    color: var(--heading);
+}
+
+.dropdown-menu {
+    background: var(--background-secondary);
+}
+
+#themeSelect, #themeSelect option {
+    background: var(--background-primary);
+    color: var(--font);
 }

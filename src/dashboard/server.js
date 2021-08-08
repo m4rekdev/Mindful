@@ -18,6 +18,7 @@ import cookies from 'cookies';
 import Deps from '../utils/deps.js';
 import Middleware from './modules/middleware.js';
 import rateLimit from './modules/rate-limiter.js';
+import { sendError } from './modules/api-utils.js'
 
 export class Dashboard {
 
@@ -36,6 +37,19 @@ export class Dashboard {
         app.use(methodOverride('_method'));
         app.use(cookies.express('a', 'b', 'c'));
         app.use('/', rootRoutes, authRoutes, dashboardRoutes);
+
+
+        app.use('/api', (req, res) => res.json({ hello: 'world' }));
+        app.use('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
+
+        app.use('/api/guilds/:id/music', 
+            Deps.get(Middleware).updateUser,
+            Deps.get(Middleware).validateUser,
+            Deps.get(Middleware).updateGuilds,
+            Deps.get(Middleware).validateGuild,
+            // Deps.get(Middleware).updateMusicPlayer,
+            // musicRoutes
+        );
 
         app.all('*', (req, res) => res.render('errors/404', {
             subtitle: '404'

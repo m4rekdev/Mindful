@@ -30,6 +30,8 @@ router.put('/servers/:id/:module', Deps.get(Middleware).validateGuild, async (re
         let savedGuild = await Deps.get(Guilds).get(id);
         const old = { prefix: savedGuild.settings.prefix, blacklistedChannelIds: savedGuild.settings.blacklistedChannelIds };
 
+        if (old === req.body) return false;
+
         await Deps.get(AuditLogger).change(id, {
             at: new Date(),
             by: res.locals.user.id,

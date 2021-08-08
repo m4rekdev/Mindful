@@ -3,7 +3,7 @@ section#settingsModule.module.px-5
         .jumbotron.bg-transparent.pb-0
             h1.display-3 Settings
         .form-group.my-5
-            .row
+            .row.d-flex
                 .col-4
                     label Prefix
                     input.form-control.bg-transparent(type='text', name='prefix', value=savedGuild.settings.prefix, maxlength='5')
@@ -16,6 +16,5 @@ section#settingsModule.module.px-5
                                 option(value=channel.id, selected) ##{channel.name}
                             else
                                 option(value=channel.id) ##{channel.name}
-                .col-4
         .d-flex.justify-content-center
             button.btn.btn-success #[i.fas.fa-rocket] Save

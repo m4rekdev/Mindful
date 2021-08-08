@@ -7,10 +7,10 @@ html(lang="en")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js', defer)
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css')
 
-    body.bg-dark
+    body
         include ../includes/sidebar.pug
 
-        #sidebarExtension.bg-dash-menu
+        #sidebarExtension
             header.text-center.pt-4
                 .large-icon.shadow.round
                     if server.icon
@@ -26,7 +26,7 @@ html(lang="en")
 
         include ../includes/navbar.pug
 
-        section.cont.bg-transparent.text-center
+        section.cont.bg-transparent.text-center.d-flex.flex-column
             include modules/player
             include modules/settings
 

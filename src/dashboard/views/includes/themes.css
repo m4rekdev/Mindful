@@ -1,0 +1,33 @@
+:root,
+:root[theme='DEFAULT'] {
+    --primary: white;
+
+    --heading: white;
+    --font: #c9c9c9;
+
+    --background-primary: #414141;
+    --background-secondary: #323232;
+    --background-tertiary: #373737;
+}
+
+:root[theme='DISCORD'] {
+    --primary: #5865F2;
+
+    --heading: white;
+    --font: #929292;
+
+    --background-primary: #36393F;
+    --background-secondary: #2F3136;
+    --background-tertiary: #202225;
+}
+
+:root[theme='ANIME'] {
+    --primary: #5865F2;
+
+    --heading: white;
+    --font: white;
+
+    --background-primary: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('https://cdn.discordapp.com/attachments/863481955738845184/873999242568540200/G8tOaeY.png'), #36393F;
+    --background-secondary: #2F3136;
+    --background-tertiary: #202225;
+}

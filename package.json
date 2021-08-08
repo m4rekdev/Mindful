@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "@2pg/music": "^1.1.7",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-3": "^6.5.0",
     "body-parser": "^1.19.0",

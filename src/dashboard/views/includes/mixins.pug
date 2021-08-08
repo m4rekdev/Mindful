@@ -1,5 +1,5 @@
 mixin category(category)
-    li.list-group-item.bg-transparent(id=category.name) #[i(class=category.icon)] #{category.name}
+    li.list-group-item.bg-transparent.category(id=category.name) #[i(class=category.icon)] #{category.name}
 
 mixin command(command)
     li(id=command.name + "Command", class=command.category).list-group-item.bg-transparent
