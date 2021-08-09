@@ -26,6 +26,7 @@
 
     --heading: white;
     --font: white;
+    --muted: #9b9b9b;
 
     --background-primary: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('https://cdn.discordapp.com/attachments/863481955738845184/873999242568540200/G8tOaeY.png'), #36393F;
     --background-secondary: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), linear-gradient(rgba(110, 168, 255, 0.5),rgba(122, 124, 255, 0.5)), #424242;

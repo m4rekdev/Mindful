@@ -21,7 +21,8 @@ router.get('/servers/:id', Deps.get(Middleware).validateGuild, Deps.get(Middlewa
         savedGuild: await Deps.get(Guilds).get(req.params.id),
         savedLog: await Deps.get(Logs).get(req.params.id),
         users: bot.users.cache,
-        player: res.locals.player
+        player: res.locals.player,
+        key: res.cookies.get('key')
     });
 });
 

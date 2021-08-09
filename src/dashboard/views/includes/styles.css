@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
 }
 
 *::-webkit-scrollbar-track
@@ -36,7 +37,7 @@ body {
     background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
 }
 
@@ -221,9 +222,8 @@ nav.navbar {
 
 .cont {
     display: inline-block;
-    text-align: center;
     margin: 10px auto;
-    white-space: wrap;
+    word-wrap: break-word;
     width: 75%;
 }
 
@@ -280,19 +280,21 @@ input, select, table {
 
 .card-header {
     border: none;
+    word-wrap: break-word;
 }
 
 .card-header img {
-    width: 128px;
-    height: 128px;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.q-control, .position {
+.q-control,
+.position {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .q-control {
@@ -313,3 +315,74 @@ input, select, table {
     border-radius: 10px;
 }
 
+.buttons,
+#volume {
+    text-align: center;
+}
+
+#trackSearch {
+    max-height: 64px;
+}
+
+#volume {
+    float: left;
+    margin: 10px 100px;
+    display: flex;
+}
+
+#seekTrack {
+    margin-top: 65px !important;
+}
+
+.text-muted {
+    color: var(--muted) !important;
+}
+
+.track-list {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.track-methods button {
+    margin: 10px 50px;
+}
+
+.track-q span {
+    display: flex;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1120px) {
+    .track-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .track-methods {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        max-width: 80vw;
+    }
+
+    #volume {
+        margin: 0;
+        margin-top: 48px;
+    }
+
+    #searchInput {
+        max-width: 100px;
+    }
+
+    .remove {
+        margin: 0 !important;
+        margin-left: 5px !important;
+        padding: 2px 4px !important;
+    }
+  }

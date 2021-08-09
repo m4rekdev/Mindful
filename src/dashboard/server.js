@@ -33,12 +33,16 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
+
+        app.get('/api', (req, res) => res.json({ hello: 'world' }));
+        app.get('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
+
         app.use(rateLimit);
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(methodOverride('_method'));
         app.use(cookies.express('a', 'b', 'c'));
         app.use('/', rootRoutes, authRoutes, dashboardRoutes);
-        app.use('/api/guilds/:id/music', 
+        app.use('/api/guilds/:id/player', 
             Deps.get(Middleware).updateUser,
             Deps.get(Middleware).validateUser,
             Deps.get(Middleware).updateGuilds,
@@ -46,10 +50,6 @@ export class Dashboard {
             Deps.get(Middleware).updateMusicPlayer,
             musicRoutes
         );
-
-
-        app.use('/api', (req, res) => res.json({ hello: 'world' }));
-        app.use('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
 
         app.all('*', (req, res) => res.render('errors/404', {
             subtitle: '404'

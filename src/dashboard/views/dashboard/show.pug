@@ -9,6 +9,7 @@ html(lang="en")
 
         script(defer).
             const guildId = '#{savedGuild.id}';
+            const key = '#{key}';
 
     body
         include ../includes/sidebar.pug
@@ -29,7 +30,7 @@ html(lang="en")
 
         include ../includes/navbar.pug
 
-        section.cont.bg-transparent.text-center.d-flex.flex-column
+        section.cont.bg-transparent.d-flex.flex-column
             include modules/player
             include modules/settings
 
