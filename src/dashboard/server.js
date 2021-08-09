@@ -33,7 +33,6 @@ export class Dashboard {
         app.set('views', __dirname + '/views');
         app.set('view engine', 'pug');
 
-
         app.get('/api', (req, res) => res.json({ hello: 'world' }));
         app.get('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
 
