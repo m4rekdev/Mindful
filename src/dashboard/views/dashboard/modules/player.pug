@@ -2,4 +2,53 @@ section#playerModule.module.px-5
     .jumbotron.bg-transparent.pb-0
         h1.display-3 Player
     .form-group.mt-5
-        .row
+    
+    - const track = (player.q.length > 0) ? player.q.items[0] : null;
+    .card.shadow.p-3
+        #musicAPIError.alert.alert-danger.d-none
+        .card-header.bg-transparent.row
+            .col
+                h5 Playing
+
+                if track
+                    .track
+                        img.mr-3(src=track.thumbnail)
+                        h5-mt-0 #{track.title}
+                        p.lead #{track.author.thumbnail}
+            .col.mt-5
+                .controls.row
+                    .col-3
+                    .col-6.buttons
+                        button#toggleTrack.btn.btn-primary.mx-1 #[i.fas(class=player.isPaused ? 'fa-play' : 'fa-pause')]
+                        button#stopTrack.btn.btn-primary.mx-1 #[i.fas.fa-square]
+                        button#skipTrack.btn.btn-primary.mx-1 #[i.fas.fa-forward]
+                        button#shuffleList.btn.btn-primary.mx-1 #[i.fas.fa-random]
+                    .col-3#volume
+                        i.fas.fa-volume-up.mr-1
+                        input.form-control-range.py-3(type='range',value='0')
+                #seekTrack
+                    input.form-control-range(type='range', value=(player.position || 0) / 1000)
+                    .position
+                        span.current 00:00
+                        span.text-muted.px-1 /
+                        span.duration.text-muted 00:00
+        hr.mx-auto
+        .card-body
+            h5 Queue
+            .q-control
+                div.mt-3
+                    label Search
+                        input.bg-transparent.mt-1.form-control
+                    button#trackSearch.mx-2.mb-2.btn.btn-primary #[i.fas.fa-plus]
+                .track-list.mt-5
+                    each track in player.q.items
+                        .track
+                            img.mr-3(src=track.thumbnail)
+                            .float-left 
+                                h5-mt-0 #{track.title}
+                                p.lead #{track.author.thumbnail}
+                            .float-right
+                                span.text-muted #{track.duration.timestamp}
+                                button.remove.btn.text-danger x
+                    else
+                        p The queue is empty.

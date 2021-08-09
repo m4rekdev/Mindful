@@ -3,7 +3,7 @@
     --primary: white;
 
     --heading: white;
-    --font: #c9c9c9;
+    --font: #e7e7e7;
 
     --background-primary: #414141;
     --background-secondary: #323232;
@@ -14,7 +14,7 @@
     --primary: #5865F2;
 
     --heading: white;
-    --font: #929292;
+    --font: #b8b8b8;
 
     --background-primary: #36393F;
     --background-secondary: #2F3136;
@@ -28,6 +28,6 @@
     --font: white;
 
     --background-primary: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('https://cdn.discordapp.com/attachments/863481955738845184/873999242568540200/G8tOaeY.png'), #36393F;
-    --background-secondary: #2F3136;
-    --background-tertiary: #202225;
+    --background-secondary: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), linear-gradient(rgba(110, 168, 255, 0.5),rgba(122, 124, 255, 0.5)), #424242;
+    --background-tertiary: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), linear-gradient(rgba(226, 110, 255, 0.5),rgba(255, 122, 248, 0.5)), #424242;
 }

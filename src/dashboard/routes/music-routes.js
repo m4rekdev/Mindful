@@ -14,7 +14,7 @@ router.get('/play', async (req, res) => {
 router.get('/stop', async (req, res) => {
     try {
         await res.locals.player.stop();
-        res.json(track);
+        res.json({ code: 200, message: 'Success!' });
     } catch (error) {
         sendError(res, error);
     }

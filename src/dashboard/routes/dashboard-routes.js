@@ -16,11 +16,12 @@ router.use(Deps.get(Middleware).updateUser, Deps.get(Middleware).validateUser, D
 
 router.get('/dashboard', (req, res) => res.render('dashboard/index'));
 
-router.get('/servers/:id', Deps.get(Middleware).validateGuild, async (req, res) => {
+router.get('/servers/:id', Deps.get(Middleware).validateGuild, Deps.get(Middleware).updateMusicPlayer, async (req, res) => {
     res.render('dashboard/show', {
         savedGuild: await Deps.get(Guilds).get(req.params.id),
         savedLog: await Deps.get(Logs).get(req.params.id),
-        users: bot.users.cache
+        users: bot.users.cache,
+        player: res.locals.player
     });
 });
 

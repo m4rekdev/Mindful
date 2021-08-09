@@ -60,7 +60,7 @@ export default class Middleware {
                 throw new TypeError('You shall not pass.');
             
             res.locals.requestor = requestor;
-            res.locals.player = MusicHandler.get({
+            res.locals.player = await Deps.get(MusicHandler).get({
                 guildId: req.params.id,
                 voiceChannel: requestor.voice.channel
             });

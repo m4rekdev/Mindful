@@ -7,10 +7,13 @@ html(lang="en")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js', defer)
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css')
 
+        script(defer).
+            const guildId = '#{savedGuild.id}';
+
     body
         include ../includes/sidebar.pug
 
-        #sidebarExtension
+        #sidebarExtension.shadow
             header.text-center.pt-4
                 .large-icon.shadow.round
                     if server.icon
@@ -34,3 +37,12 @@ html(lang="en")
 
         script(defer)
             include ../includes/guild.js
+
+        script(defer)
+            include ../includes/music/html-music-wrapper.js
+
+        script(defer)
+            include ../includes/music/music-wrapper.js
+
+        script(defer)
+            include ../includes/music/player.js

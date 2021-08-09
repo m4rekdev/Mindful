@@ -38,11 +38,6 @@ export class Dashboard {
         app.use(methodOverride('_method'));
         app.use(cookies.express('a', 'b', 'c'));
         app.use('/', rootRoutes, authRoutes, dashboardRoutes);
-
-
-        app.use('/api', (req, res) => res.json({ hello: 'world' }));
-        app.use('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
-
         app.use('/api/guilds/:id/music', 
             Deps.get(Middleware).updateUser,
             Deps.get(Middleware).validateUser,
@@ -51,6 +46,10 @@ export class Dashboard {
             Deps.get(Middleware).updateMusicPlayer,
             musicRoutes
         );
+
+
+        app.use('/api', (req, res) => res.json({ hello: 'world' }));
+        app.use('/api/', (req, res) => sendError(res, { code: 404, message: 'Not found.' }));
 
         app.all('*', (req, res) => res.render('errors/404', {
             subtitle: '404'

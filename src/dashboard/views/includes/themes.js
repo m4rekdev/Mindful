@@ -8,4 +8,8 @@ function setTheme(theme) {
     $('html').attr('theme', theme);
 }
 
-setTheme(localStorage.getItem('theme'))
+if (localStorage.getItem('theme') === 'null') {
+    setTheme('DEFAULT');
+} else {
+    setTheme(localStorage.getItem('theme'));
+}
