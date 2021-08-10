@@ -340,8 +340,9 @@ input, select, table {
 }
 
 .track-list {
-    max-height: 180px;
+    max-height: 100px;
     overflow-y: auto;
+    padding-right: 10px;
 }
 
 .track-methods button {

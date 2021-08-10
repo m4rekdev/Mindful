@@ -2,8 +2,10 @@ class HTMLMusicWrapper {
     #music;
 
     set apiError(error) {
-        if (!error)
-            return $('#playerAPIError').addClass('d-none');
+        if (!error) {
+            $('#playerAPIError').addClass('d-none');
+            return $('#playerAPIError').text('');
+        }
 
         $('#playerAPIError').removeClass('d-none');
         $('#playerAPIError').text(error.message ?? 'An unknown error occurred.');
@@ -14,6 +16,8 @@ class HTMLMusicWrapper {
     }
 
     updateList() {
+        const thisGlobal = this;
+
         $('.track-np').html(this.#nowPlaying());
 
         $('.track-list').html(
@@ -23,9 +27,11 @@ class HTMLMusicWrapper {
                 .map(track => this.#htmlTrack(track))
                 .join(''));
 
-        $('.track-q .remove').on('click', async () => {
-            const index = $('.track-q .remove').index('.remove');
-            await this.#music.remove(index);
+        $('.track-q .remove').on('click', async function() {
+            const trackq = $(this).parent();
+            const index = $('.track-list').index(trackq);
+            console.log(index);
+            await thisGlobal.#music.remove(index);
         });
     }
 

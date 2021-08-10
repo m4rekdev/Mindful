@@ -15,7 +15,7 @@ class MusicWrapper {
             return json;
         } catch(error) {
             this.#html.apiError = error;
-            throw error;
+            throw new Error(error);
         }
     }
 
@@ -45,7 +45,6 @@ class MusicWrapper {
     }
 
     async updateList(list = null) {
-        console.log(list);
         this.list = list ?? await this.#fetch('list');
         this.#html.updateList();
     }

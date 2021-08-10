@@ -9,7 +9,7 @@ section#playerModule.module.px-5
                 .track-np.d-flex.mt-4
                 #volume
                     i.fas.fa-volume-up.mr-3.mt-3
-                    input.form-control-range.py-3(type='range',value='0')
+                    input.form-control-range.py-3(type='range', value=0)
             .col
                 h5.text-center Controls
 
@@ -21,7 +21,7 @@ section#playerModule.module.px-5
                         button#skipTrack.btn.btn-primary.m-1 #[i.fas.fa-forward]
                         button#shuffleList.btn.btn-primary.m-1 #[i.fas.fa-random]
                 #seekTrack
-                    input.form-control-range(type='range', value=(player.position || 0) / 1000)
+                    input.form-control-range(type='range', value=(player.position / 1000 || 0))
                     .position
                         span.current 00:00
                         span.text-muted.px-1 /
