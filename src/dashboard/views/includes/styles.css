@@ -249,6 +249,7 @@ code {
 
 .dropdown-menu {
     background: var(--background-secondary);
+    z-index: 99;
 }
 
 #themeSelect, #themeSelect option {

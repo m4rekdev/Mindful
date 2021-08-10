@@ -3,7 +3,7 @@ class HTMLMusicWrapper {
 
     set apiError(error) {
         if (!error)
-            $('#playerAPIError').addClass('d-none');
+            return $('#playerAPIError').addClass('d-none');
 
         $('#playerAPIError').removeClass('d-none');
         $('#playerAPIError').text(error.message ?? 'An unknown error occurred.');
@@ -21,7 +21,7 @@ class HTMLMusicWrapper {
             ? '<p>The queue is empty.</p>'
             : this.#music.list
                 .map(track => this.#htmlTrack(track))
-                .join());
+                .join(''));
 
         $('.track-q .remove').on('click', async () => {
             const index = $('.track-q .remove').index('.remove');

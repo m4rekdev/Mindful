@@ -45,6 +45,7 @@ class MusicWrapper {
     }
 
     async updateList(list = null) {
+        console.log(list);
         this.list = list ?? await this.#fetch('list');
         this.#html.updateList();
     }

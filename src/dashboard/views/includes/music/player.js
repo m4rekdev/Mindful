@@ -1,4 +1,6 @@
 $(async () => {
+    $('#playerAPIError').hide();
+
     const music = new MusicWrapper();
 
     await music.updateList();
