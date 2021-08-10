@@ -1,0 +1,29 @@
+doctype
+html(lang="en")
+    head
+        include ../includes/header.pug
+    body
+        include ../includes/sidebar.pug
+
+        #sidebarExtension.shadow
+            header.text-center.pt-4
+                .large-icon.bg-secondary.round
+                    img.round(src=user.avatarUrl(128), alt=user.username)
+                h4.pt-2 #{user.username}#[span.text-muted #{'#' + user.discriminator.toString().padStart(4, '0')}]
+
+            .p-4
+                label Theme
+                select#themeSelect.form-control
+                    option(value='DEFAULT', selected) Default
+                    option(value='DISCORD') Discord
+                    option(value='ANIME') Anime (Special)
+
+        include ../includes/navbar.pug
+        |
+        .jumbotron.bg-transparent.text-center.mt-25vh.d-flex.flex-column
+            h1.display-3 Dashboard
+            hr
+            p.lead Manage music and settings of Mindful for your server.
+
+    script(defer)
+        include ../includes/themes.js
