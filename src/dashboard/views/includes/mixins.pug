@@ -7,5 +7,5 @@ mixin command(command)
 
 mixin user(user)
     span(title=user.id)
-        img.user-avatar.round.mr-2(src=user.displayAvatarURL({ dynamic: true, size: 64 }))
+        img.user-avatar.round.mr-2(src=user.displayAvatarURL({ dynamic: true, size: 32 }))
         h5.d-inline #{user.username}

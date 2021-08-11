@@ -1,18 +1,35 @@
 class HTMLMusicWrapper {
     #music;
 
-    set apiError(error) {
-        if (!error) {
-            $('#playerAPIError').addClass('d-none');
-            return $('#playerAPIError').text('');
-        }
+    get currentTimestamp() {
+        const position =  this.#music.position;
 
+        const minutes = Math.floor(position / 60).toString().padStart(2, '0');
+        const seconds = Math.floor(position - (minutes * 60)).toString().padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    }
+
+    set apiError(error) {
+        if (!error)
+            return $('#playerAPIError').addClass('d-none');
+        
         $('#playerAPIError').removeClass('d-none');
-        $('#playerAPIError').text(error.message ?? 'An unknown error occurred.');
+        $('#playerAPIError').text(error.message ?? 'Unknown error.');
     }
 
     constructor(musicClient) {
         this.#music = musicClient;
+
+        setInterval(() => this.#updateSeeker(), 1000);
+    }
+
+    #updateSeeker() {
+        if (!this.#music.isPlaying) return;
+
+        this.#music.position++;
+
+        $('#seekTrack input').val(this.#music.position);
+        $('.current').text(this.currentTimestamp);
     }
 
     updateList() {
@@ -20,23 +37,36 @@ class HTMLMusicWrapper {
 
         $('.track-np').html(this.#nowPlaying());
 
+        const track = (this.#music.isPlaying) ? this.#music.list[0] : null;
+        if (track) {
+            $('.current').text(this.currentTimestamp);
+            $('.duration').text(track.duration.timestamp.toString().padStart(2, '0'));
+            $('#seekTrack input').attr('max', track.duration.seconds)
+        } else {
+            $('.current, .duration').text('00:00');
+        }
+
         $('.track-list').html(
-            (this.#music.list.length <= 0)
+            (!this.#music.isPlaying)
             ? '<p>The queue is empty.</p>'
             : this.#music.list
                 .map(track => this.#htmlTrack(track))
                 .join(''));
 
         $('.track-q .remove').on('click', async function() {
-            const trackq = $(this).parent();
-            const index = $('.track-list').index(trackq);
+            const index = $(this).index('.remove');
             console.log(index);
             await thisGlobal.#music.remove(index);
         });
     }
 
+    toggle() {
+        $('#toggleTrack i').toggleClass('fas-pause');
+        $('#toggleTrack i').toggleClass('fas-play');
+    }
+
     #nowPlaying() {
-        if (this.#music.list.length <= 0) 
+        if (!this.#music.isPlaying) 
             return `
             <img class="mr-3" />
             <span>
