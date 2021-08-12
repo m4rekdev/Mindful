@@ -9,11 +9,14 @@ section#settingsModule.module.px-5
                     .col-4
                         label Blacklisted Channels
                         input(name='blacklistedChannelIds', type='hidden', value='')
-                        select.form-control.bg-transparent.custom-select(name='blacklistedChannelIds[]', multiple)
+                        select.form-control.bg-transparent.custom-select.mb-3(name='blacklistedChannelIds[]', multiple)
                             each channel of Array.from(server.channels.cache.filter(c => c.type === 'text').values())
                                 if savedGuild.settings.blacklistedChannelIds.includes(channel.id)
                                     option(value=channel.id, selected) ##{channel.name}
                                 else
                                     option(value=channel.id) ##{channel.name}
+                        .alert.alert-primary
+                            span.font-weight-bold Tip! 
+                            p You can use CTRL to select multiple channels.
             .d-flex.justify-content-center
                 button.btn.btn-success #[i.fas.fa-rocket] Save

@@ -1,7 +1,10 @@
 section#playerModule.module.px-5  
     - const track = (player.q.length > 0) ? player.q.items[0] : null;
     .card.shadow.p-3.mt-5
-        #playerAPIError.alert.alert-danger.d-none
+        #playerAPIError.alert.alert-danger.d-none.alert-dismissible.fade.show(role='alert')
+            p
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span.text-dark(aria-hidden='true') &times;
         .card-header.bg-transparent.row.mb-0
             .col
                 h5.text-center Now Playing
@@ -9,7 +12,7 @@ section#playerModule.module.px-5
                 .track-np.d-flex.mt-4
                 #volume
                     i.fas.fa-volume-up.mr-3.mt-3
-                    input.form-control-range.py-3(type='range', value='0' , max='1')
+                    input.form-control-range.py-3(type='range', value='0' , max='1', step='0.1')
             .col
                 h5.text-center Controls
 

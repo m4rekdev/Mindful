@@ -14,7 +14,7 @@ class HTMLMusicWrapper {
             return $('#playerAPIError').addClass('d-none');
         
         $('#playerAPIError').removeClass('d-none');
-        $('#playerAPIError').text(error.message ?? 'Unknown error.');
+        $('#playerAPIError p').text(error.message ?? 'Unknown error.');
     }
 
     constructor(musicClient) {
@@ -24,7 +24,7 @@ class HTMLMusicWrapper {
     }
 
     #updateSeeker() {
-        if (!this.#music.isPlaying) return;
+        if (!this.#music.isPlaying || this.#music.isPaused) return;
 
         this.#music.position++;
 

@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 *::-webkit-scrollbar-track
@@ -358,7 +358,15 @@ input, select, table {
     flex-direction: column;
 }
 
+.icon-success {
+    background: green;
+}
+
 @media only screen and (max-width: 1120px) {
+    #sidebar {
+        height: 90vh;
+    }
+
     .track-info {
         display: flex;
         flex-direction: column;

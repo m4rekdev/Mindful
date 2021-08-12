@@ -46,7 +46,7 @@ class MusicWrapper {
     async toggle() {
         try {
             await this.#fetch(`toggle`);
-            this.isPaused = !this.isPaused;
+            this.isPaused = !this.isPlaying;
             this.#html.toggle();
             this.#html.apiError = null;
         } catch {}
